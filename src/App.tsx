@@ -29,7 +29,7 @@ const App: React.FC = () => {
   };
 
   const { isLoading, error, data } = useQuery<Post[] | undefined>(
-    "dogs",
+    "posts",
     fetchPosts
   );
 
