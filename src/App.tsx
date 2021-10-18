@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { Container } from "@chakra-ui/react";
+import { Heading, Text } from "@chakra-ui/layout";
 
 type Post = {
   userId: number;
@@ -38,14 +39,12 @@ const App: React.FC = () => {
   console.log(data);
 
   return (
-    <div>
-      {data &&
-        data.map((item) => (
-          <Container maxW="container.xl" py={5}>
-            <h1>{item.title} </h1>
-          </Container>
-        ))}
-    </div>
+    <Container maxW="container.xl" py={5} px={3}>
+      <Heading fontWeight="extrabold" color="cyan.500" size="xl" py={5}>
+        Posts
+      </Heading>
+      {data && data.map((item) => <Text mt={3}>{item.title} </Text>)}
+    </Container>
   );
 };
 
