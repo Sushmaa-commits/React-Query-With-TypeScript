@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { Container } from "@chakra-ui/react";
 
 type Post = {
   userId: number;
@@ -36,7 +37,16 @@ const App: React.FC = () => {
 
   console.log(data);
 
-  return <div>{data && data.map((item) => item.title)}</div>;
+  return (
+    <div>
+      {data &&
+        data.map((item) => (
+          <Container maxW="container.xl" py={5}>
+            <h1>{item.title} </h1>
+          </Container>
+        ))}
+    </div>
+  );
 };
 
 export default App;
